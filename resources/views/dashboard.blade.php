@@ -11,7 +11,13 @@
                 <div class="p-6 text-gray-900">
                     {{ __("You're logged in!") }}
                 </div>
+                @admin
+                <div class="p-6 text-blue-600">
+                    {{__("You are Administrator!")}}
+                </div>
+                @endadmin
             </div>
         </div>
     </div>
+    
 </x-app-layout>
