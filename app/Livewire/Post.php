@@ -72,8 +72,7 @@ class Post extends Component
      */
     public function cancelPost() 
     {
-        $this->addPost = false;
-        $this->updatePost = false;
+        $this->reset(['addPost', 'updatePost']);
         $this->resetField();
     }
 

@@ -10,18 +10,14 @@
                 {{ session()->get('error') }}
             </div>
         @endif
-        @if ($addPost)
-            @include('livewire.create')
-        @endif
-        @if($updatePost)
-            @include('livewire.update')
-        @endif
+        @includeWhen($addPost, 'livewire.create')
+        @includeWhen($updatePost, 'livewire.update')
     </div>
     <div class="col-md-8">
         <div class="card">
             <div class="card-body">
                 @if (!$addPost)
-                    <button wire:click="createPost()" class="px-4 py-2 text-white bg-blue-600 float-right" >Add New Post</button>
+                    <button wire:click="createPost()" class="px-4 py-2 text-white bg-blue-600 float-right rounded" >Add New Post</button>
                 @endif
                 <div class="relative overflow-x-auto">
                     <table class="table w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -43,8 +39,8 @@
                                             {{ $post->description }}
                                         </td>
                                         <td class="px-6 py-4 border-b border-gray-200">
-                                            <button wire:click="editPost({{$post->id }})" class="px-4 py-2 text-white bg-green-600">Edit</button>
-                                            <button wire:click="deletePost({{$post->id}})" class="px-4 py-2 text-white bg-red-600">Delete</button>
+                                            <button wire:click="editPost({{ $post->id }})" class="px-4 py-2 text-white bg-green-600 rounded">Edit</button>
+                                            <button wire:click="deletePost({{ $post->id }})" class="px-4 py-2 text-white bg-red-600 rounded">Delete</button>
                                         </td>
                                     </tr>
                                 @endforeach

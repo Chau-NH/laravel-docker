@@ -12,8 +12,8 @@
                     {{ __("You're logged in!") }}
                 </div>
                 @admin
-                <div class="p-6 text-blue-600">
-                    {{__("You are Administrator!")}}
+                <div class="p-6">
+                    <a href="{{ url('/posts') }}" class="font-medium text-blue-600 hover:underline">Posts</a>
                 </div>
                 @endadmin
             </div>

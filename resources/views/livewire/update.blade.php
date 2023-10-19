@@ -16,8 +16,8 @@
                 @enderror
             </div>
             <div class="mt-6 flex justify-end gap-2">
-                <button wire:click.prevent="modifyPost()" class="px-4 py-2 text-white bg-green-600">Update</button>
-                <button wire:click.prevent="cancelPost()" class="px-4 py-2 text-white bg-gray-600">Cancel</button>
+                <button wire:click.prevent="modifyPost()" class="px-4 py-2 text-white bg-green-600 rounded">Update</button>
+                <button wire:click.prevent="cancelPost()" class="px-4 py-2 text-white bg-gray-600 rounded">Cancel</button>
             </div>
         </form>
     </div>

@@ -16,8 +16,8 @@
                 @enderror
             </div>
             <div class="mt-6 flex justify-end gap-2">
-                <button wire:click.prevent="storePost()" class="px-4 py-2 text-white bg-green-600">Save</button>
-                <button wire:click.prevent="cancelPost()" class="px-4 py-2 text-white bg-gray-600">Cancel</button>
+                <button wire:click.prevent="storePost()" class="px-4 py-2 text-white bg-green-600 rounded">Save</button>
+                <button wire:click.prevent="cancelPost()" class="px-4 py-2 text-white bg-gray-600 rounded">Cancel</button>
             </div>
         </form>
     </div>
