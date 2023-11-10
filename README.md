@@ -150,7 +150,7 @@ volumes:
 ## Create Dockerfile
 
 ```Dockerfile
-FROM php:8.1-fpm
+FROM php:8.2-fpm
 
 # Copy composer.json and composer.lock
 COPY composer.json composer.lock /var/www/
