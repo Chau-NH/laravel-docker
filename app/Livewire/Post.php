@@ -20,6 +20,12 @@ class Post extends Component
         'description' => 'required'
     ];
 
+    public function render()
+    {
+        $this->posts = PostModel::select('id', 'title', 'description')->get();
+        return view('livewire.post.post');
+    }
+
     /**
      * Reseting all inputted fields
      * @return void
@@ -28,12 +34,6 @@ class Post extends Component
     {
         $this->title = '';
         $this->description = '';
-    }
-
-    public function render()
-    {
-        $this->posts = PostModel::select('id', 'title', 'description')->get();
-        return view('livewire.post.post');
     }
 
     /**
