@@ -10,6 +10,7 @@ class Post extends Component
     public $posts, $title, $description, $postId;
     public $updatePost = false;
     public $addPost = false;
+    public $listPost = true;
     
     /**
      * List of add/edit form rules
@@ -32,7 +33,7 @@ class Post extends Component
     public function render()
     {
         $this->posts = PostModel::select('id', 'title', 'description')->get();
-        return view('livewire.post');
+        return view('livewire.post.post');
     }
 
     /**
@@ -44,6 +45,7 @@ class Post extends Component
         $this->resetField();
         $this->addPost = true;
         $this->updatePost = false;
+        $this->listPost = false;
     }
 
     /**
@@ -61,6 +63,7 @@ class Post extends Component
             session()->flash('success', 'Post Created Successfully!!');
             $this->resetField();
             $this->addPost = false;
+            $this->listPost = true;
         } catch (\Exception $e) {
             session()->flash('error', 'Something goes wrong!!');
         }
@@ -72,7 +75,7 @@ class Post extends Component
      */
     public function cancelPost() 
     {
-        $this->reset(['addPost', 'updatePost']);
+        $this->reset(['addPost', 'updatePost', 'listPost']);
         $this->resetField();
     }
 
@@ -93,6 +96,7 @@ class Post extends Component
                 $this->postId = $post->id;
                 $this->addPost = false;
                 $this->updatePost = true;
+                $this->listPost = false;
             }
         } catch (\Exception $e) {
             session()->flash('error','Something goes wrong!!');
@@ -114,7 +118,7 @@ class Post extends Component
             session()->flash('success','Post Updated Successfully!!');
             $this->resetField();
             $this->updatePost = false;
-
+            $this->listPost = true;
         } catch (\Exception $e) {
             session()->flash('error', $e->getMessage());
         }
@@ -134,5 +138,4 @@ class Post extends Component
             session()->flash('error', $e->getMessage());
         }
     }
-
 }
