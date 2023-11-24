@@ -82,8 +82,7 @@ Go to `config\l5-swagger.php` add below code under `securitySchemes` secction
     ]
 ]
 ```
-OR 
-Add `@OA\SecurityScheme` to main `Http\Controllers\Controller.php`
+OR add `@OA\SecurityScheme` to main `Http\Controllers\Controller.php`
 ```php
 /**
  * @OA\SecurityScheme(
