@@ -128,6 +128,7 @@ Replace `Sanctum\HasApiTokens` to `Passport\HasApiTokens`
 
 ```php
 // app\Models\User.php
+
 // use Laravel\Sanctum\HasApiTokens;
 use Laravel\Passport\HasApiTokens;
 
@@ -204,3 +205,11 @@ curl --location 'http://localhost:8080/oauth/token' \
 --form 'scope=""'
 ```
 
+Pass access token to header
+```sh
+curl -X 'GET' \
+  'http://localhost:8080/api/profile' \
+  -H 'accept: application/json' \
+  -H 'Authorization: Bearer <access token>' \
+  -H 'X-CSRF-TOKEN: '
+```
