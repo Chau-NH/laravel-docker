@@ -51,6 +51,11 @@ Make sure your compiled CSS is included in the `<head>` then start using Tailwin
 </head>
 ```
 
+### Build CSS
+```sh
+npm run build
+```
+
 ## Set up Livewire
 Reference: https://livewire.laravel.com/docs/installation
 
