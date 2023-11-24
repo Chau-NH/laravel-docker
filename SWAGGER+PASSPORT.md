@@ -76,13 +76,23 @@ Go to `config\l5-swagger.php` add below code under `securitySchemes` secction
 ```php
 'securitySchemes' => [
     'bearer_token' => [
-        'type' => 'apiKey',
+        'type' => 'http',
         'scheme' => 'bearer',
-        'description' => 'Enter token in format (Bearer <token>)',
-        'name' => 'Authorization',
-        'in' => 'header'
+        'description' => 'Enter token here'
     ]
 ]
+```
+OR 
+Add `@OA\SecurityScheme` to main `Http\Controllers\Controller.php`
+```php
+/**
+ * @OA\SecurityScheme(
+ *  securityScheme="bearer_token",   // you can name it whatever you want, but not forget to use the same in your request
+ *  type="http",
+ *  scheme="bearer",
+ *  description="Enter token here"
+ * )
+ */
 ```
 Then add this row to API documentation
 ```php

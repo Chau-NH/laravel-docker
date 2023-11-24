@@ -199,11 +199,9 @@ return [
                 ],
                 */
                 'bearer_token' => [
-                    'type' => 'apiKey',
+                    'type' => 'http',
                     'scheme' => 'bearer',
-                    'description' => 'Enter token in format (Bearer <token>)',
-                    'name' => 'Authorization',
-                    'in' => 'header'
+                    'description' => 'Enter token here'
                 ]
             ],
             'security' => [
