@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Posts;
 
+use App\Livewire\Forms\PostForm;
 use Livewire\Component;
 use App\Models\Post;
 use Livewire\Attributes\Title;
@@ -9,15 +10,7 @@ use Livewire\Attributes\Title;
 #[Title('Create Post')]
 class Create extends Component
 {
-    public $posts, $title, $description;
-
-    public function rules() 
-    { 
-        return [
-            'title' => 'required|min:5',
-            'description' => 'required|min:5'
-        ];
-    }
+    public PostForm $form;
 
     public function render()
     {
@@ -29,8 +22,8 @@ class Create extends Component
         $this->validate();
         try {
             Post::create([
-                'title' => $this->title,
-                'description' => $this->description
+                'title' => $this->form->title,
+                'description' => $this->form->description,
             ]);
             session()->flash('success', 'Post Created Successfully!!');
             return redirect()->to('posts');

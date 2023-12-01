@@ -4,6 +4,7 @@ namespace App\Livewire\Posts;
 
 use Livewire\Component;
 use App\Models\Post;
+use Exception;
 use Livewire\Attributes\Title;
 
 #[Title('Edit Post')]
@@ -44,11 +45,25 @@ class Edit extends Component
                 'description' => $this->description
             ]);
             session()->flash('success','Post Updated Successfully!!');
-            return redirect()->to('posts');
+            // return redirect()->to('posts');
         } catch (\Exception $e) {
             session()->flash('error', $e->getMessage());
         }
     }
+
+    // public function updating($property, $value)
+    // {
+    //     if ($property === 'title') {
+    //         throw new Exception('Title can not be changed');
+    //     }
+    // }
+
+    // public function updated($property)
+    // {
+    //     if ($property === 'description') {
+    //         $this->description = $this->description . ' Updated Hook';
+    //     }
+    // }
 
     public function cancel()
     {

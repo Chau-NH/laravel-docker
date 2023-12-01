@@ -10,7 +10,7 @@
             <div class="p-6 bg-white border-b border-gray-200">
                 <div class="col-md-8">
                     @if (session()->has('error'))
-                        <div class="text-red-600" role="alert">
+                        <div class="mb-4 rounded-lg bg-red-100 px-6 py-5 text-base text-red-700" role="alert">
                             {{ session()->get('error') }}
                         </div>
                     @endif
@@ -18,14 +18,14 @@
                         <form>
                             <div class="sm:col-span-4">
                                 <label for="title" class="block text-sm font-medium leading-6 text-gray-900">Title:</label>
-                                <input type="text" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 @error('title') is-invalid @enderror" id="title" placeholder="Enter Title" wire:model='title'/>
+                                <input type="text" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 @error('title') is-invalid @enderror" id="title" placeholder="Enter Title" wire:model="form.title"/>
                                 @error ('title')
                                     <span class="text-red-600">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="sm:col-span-4">
                                 <label for="description" class="block text-sm font-medium leading-6 text-gray-900">Description:</label>
-                                <textarea class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 @error('description') is-invalid @enderror" id="description" wire:model="description" placeholder="Enter Description"></textarea>
+                                <textarea class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 @error('description') is-invalid @enderror" id="description" wire:model="form.description" placeholder="Enter Description"></textarea>
                                 @error ('description')
                                     <span class="text-red-600">{{ $message }}</span>
                                 @enderror
