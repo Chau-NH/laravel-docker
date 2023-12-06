@@ -11,19 +11,6 @@ use Livewire\Component;
 #[Title('Posts')]
 class Posts extends Component
 {
-    public $title, $description;
-    
-    /**
-     * List of add/edit form rules
-     */
-    public function rules() 
-    { 
-        return [
-            'title' => 'required|min:5',
-            'description' => 'required|min:5'
-        ];
-    }
-
     #[Computed]
     public function posts()
     {

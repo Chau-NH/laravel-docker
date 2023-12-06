@@ -5,17 +5,25 @@ namespace App\Livewire\Posts;
 use Livewire\Component;
 use App\Models\Post;
 use Exception;
+use Illuminate\Validation\Rule;
 use Livewire\Attributes\Title;
 
 #[Title('Edit Post')]
 class Edit extends Component
 {
-    public $post, $title, $description;
+    public $post;
+
+    public $title;
+
+    public $description;
 
     public function rules() 
     { 
         return [
-            'title' => 'required|min:5',
+            'title' => [
+                'required', 'min:5',
+                Rule::unique('posts')->ignore($this->post)
+            ],
             'description' => 'required|min:5'
         ];
     }
@@ -28,10 +36,10 @@ class Edit extends Component
                 session()->flash('error','Post not found');
             } else {
                 $this->fill(
-                    $this->post->only(['title', 'description', 'id'])
+                    $this->post->only(['title', 'description'])
                 );
             }
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             session()->flash('error', $e->getMessage());
         }
     }
@@ -39,29 +47,30 @@ class Edit extends Component
     public function save()
     {
         $this->validate();
+
         try {
             $this->post->update([
                 'title' => $this->title,
                 'description' => $this->description
             ]);
             session()->flash('success','Post Updated Successfully!!');
-            // return redirect()->to('posts');
+            return redirect()->to('posts');
         } catch (\Exception $e) {
             session()->flash('error', $e->getMessage());
         }
     }
 
-    // public function updating($property, $value)
+    // public function updatingTitle($value)
     // {
-    //     if ($property === 'title') {
-    //         throw new Exception('Title can not be changed');
+    //     if ($value === 'title') {
+    //         throw new Exception('Title is invalid value');
     //     }
     // }
 
     // public function updated($property)
     // {
-    //     if ($property === 'description') {
-    //         $this->description = $this->description . ' Updated Hook';
+    //     if ($property === 'title') {
+    //         $this->title = strtoupper($this->title);
     //     }
     // }
 
