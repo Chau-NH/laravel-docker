@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class Item extends Component
 {
-    public $post;
+    public Post $post;
 
     public function render()
     {
