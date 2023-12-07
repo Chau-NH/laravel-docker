@@ -15,6 +15,16 @@ class Summarize extends Component
         $this->posts = $posts;
     }
 
+    public function placeholder()
+    {
+        return <<<'HTML'
+        <div class="px-4 py-4 text-black uppercase font-bold">
+            <!-- Loading spinner... -->
+            Loading...
+        </div>
+        HTML;
+    }
+
     public function render()
     {
         return <<<'HTML'

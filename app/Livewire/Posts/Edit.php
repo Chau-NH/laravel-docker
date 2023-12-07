@@ -83,4 +83,14 @@ class Edit extends Component
     {
         return view('livewire.posts.edit');
     }
+
+        public function placeholder()
+    {
+        return <<<'HTML'
+        <div class="px-4 py-4 text-black uppercase font-bold text-center">
+            <!-- Loading spinner... -->
+            Loading...
+        </div>
+        HTML;
+    }
 }
