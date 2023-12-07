@@ -31,7 +31,7 @@
                                 @enderror
                             </div>
                             <div class="mt-6 flex justify-end gap-2">
-                                <button wire:click.prevent="save()" type="submit" wire:loading.attr="disabled" class="px-4 py-2 text-white bg-green-600 rounded">
+                                <button wire:click.prevent="save()" wire:loading.attr="disabled" class="px-4 py-2 text-white bg-green-600 rounded">
                                     <span>Update</span>
                                     <x-loading wire:loading.delay.long wire:target="save()" />
                                 </button>
