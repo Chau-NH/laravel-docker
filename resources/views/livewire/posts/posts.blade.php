@@ -24,7 +24,7 @@
                 </div>
                 
                 <!--Nested Component-->
-                <div class="col-md-8 text-center">
+                <div class="col-md-8">
                     <livewire:posts.summarize lazy :posts="$this->posts" />
                 </div>
             </div>

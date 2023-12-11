@@ -28,7 +28,7 @@ class Posts extends Component
      */
     public function create()
     {
-       return redirect()->route('posts.create');
+        $this->redirectRoute('posts.create');
     }
 
     /**
@@ -38,7 +38,7 @@ class Posts extends Component
      */
     public function edit($id) 
     {
-        return to_route('posts.edit', ['id' => $id]);
+        $this->redirectRoute('posts.edit', ['id' => $id]);
     }
 
     /**

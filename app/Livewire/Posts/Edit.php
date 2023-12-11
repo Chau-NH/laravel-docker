@@ -54,7 +54,7 @@ class Edit extends Component
                 'description' => $this->description
             ]);
             session()->flash('success','Post Updated Successfully!!');
-            return redirect()->to('posts');
+            $this->redirect('/posts');
         } catch (\Exception $e) {
             session()->flash('error', $e->getMessage());
         }
@@ -76,7 +76,7 @@ class Edit extends Component
 
     public function cancel()
     {
-        return redirect()->to('posts');
+        $this->redirect('/posts');
     }
 
     public function render()

@@ -15,6 +15,9 @@
                 <div class="p-6">
                     <a href="{{ url('/posts') }}" class="font-medium text-blue-600 hover:underline">Posts</a>
                 </div>
+                <div class="p-6">
+                    <a href="{{ url('/posts') }}" wire:navigate class="font-medium text-blue-600 hover:underline">Posts Navigate</a>
+                </div>
                 @endadmin
             </div>
         </div>
