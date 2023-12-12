@@ -43,4 +43,5 @@
             </div>
         </div>
     </div>
+    <div x-intersect="$wire.increaseViewCount()"></div>
 </div>

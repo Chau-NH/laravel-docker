@@ -7,6 +7,7 @@ use App\Models\Post;
 use Exception;
 use Illuminate\Validation\Rule;
 use Livewire\Attributes\Title;
+use Livewire\Attributes\Renderless;
 
 #[Title('Edit Post')]
 class Edit extends Component
@@ -36,6 +37,7 @@ class Edit extends Component
                 session()->flash('error','Post not found');
             } else {
                 $this->fill(
+                    // Bulk Assignment
                     $this->post->only(['title', 'description'])
                 );
             }
@@ -79,12 +81,18 @@ class Edit extends Component
         $this->redirect('/posts');
     }
 
+    #[Renderless]
+    public function increaseViewCount()
+    {
+        $this->post->increment('views');
+    }
+
     public function render()
     {
         return view('livewire.posts.edit');
     }
 
-        public function placeholder()
+    public function placeholder()
     {
         return <<<'HTML'
         <div class="px-4 py-4 text-black uppercase font-bold text-center">
