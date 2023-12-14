@@ -17,4 +17,14 @@ class PostForm extends Form
             'description' => 'required|min:5'
         ];
     }
+
+    // public function messages()
+    // {
+    //     return [
+    //         'title.required' => 'The title can not be empty',
+    //         'title.min' => 'The title is too short',
+    //         'description.required' => 'The description can not be empty',
+    //         'description.min' => 'The description is too short',
+    //     ];
+    // }
 }

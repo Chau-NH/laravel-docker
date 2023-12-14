@@ -23,25 +23,6 @@ class Posts extends Component
     }
 
     /**
-     * Open Add Post form
-     * @return void
-     */
-    public function create()
-    {
-        $this->redirectRoute('posts.create');
-    }
-
-    /**
-     * show existing post data in edit post form
-     * @param mixed $id
-     * @return void
-     */
-    public function edit($id) 
-    {
-        $this->redirectRoute('posts.edit', ['id' => $id]);
-    }
-
-    /**
      * Listening to an event to delete a specific post
      * @param mixed $id
      * @return void

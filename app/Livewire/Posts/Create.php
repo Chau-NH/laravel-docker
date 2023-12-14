@@ -28,7 +28,7 @@ class Create extends Component
             ]);
             session()->flash('success', 'Post Created Successfully!!');
             // $this->js("alert('Post Saved')");
-            return redirect()->to('posts');
+            $this->redirect('/posts', true);
         } catch (\Exception $e) {
             session()->flash('error', $e->getMessage());
         }
@@ -39,18 +39,5 @@ class Create extends Component
         if ($property === 'form.title') {
             $this->form->title = strtoupper($this->form->title);
         }
-    }
-
-    // #[Js]
-    // public function afterSave()
-    // {
-    //     return <<<'JS'
-    //         alert('Post Saved');
-    //     JS;
-    // }
-
-    public function cancel()
-    {
-        return redirect()->to('posts');
     }
 }

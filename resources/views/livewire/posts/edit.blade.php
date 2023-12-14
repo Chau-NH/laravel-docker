@@ -31,11 +31,11 @@
                                 @enderror
                             </div>
                             <div class="mt-6 flex justify-end gap-2">
-                                <button wire:click.prevent="save()" wire:loading.attr="disabled" class="px-4 py-2 text-white bg-green-600 rounded">
+                                <button wire:click.prevent="save()" wire:loading.attr="disabled" class="px-4 py-2 text-white bg-green-600 rounded-lg">
                                     <span>Update</span>
                                     <x-loading wire:loading.delay.long wire:target="save()" />
                                 </button>
-                                <button wire:click.prevent="cancel()" class="px-4 py-2 text-white bg-gray-600 rounded">Cancel</button>
+                                <a wire:navigate href="{{ route('posts.index') }}" class="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-gray-600 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Cancel</a>
                             </div>
                         </form>
                     </div>

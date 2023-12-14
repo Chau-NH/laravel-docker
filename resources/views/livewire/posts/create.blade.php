@@ -18,24 +18,24 @@
                         <form>
                             <div class="sm:col-span-4">
                                 <label for="title" class="block text-sm font-medium leading-6 text-gray-900">Title:</label>
-                                <input type="text" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 @error('form.title') is-invalid @enderror" id="title" placeholder="Enter Title" wire:model="form.title"/>
+                                <input type="text" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" id="title" placeholder="Enter Title" wire:model="form.title"/>
                                 @error ('form.title')
                                     <span class="text-red-600">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="sm:col-span-4">
                                 <label for="description" class="block text-sm font-medium leading-6 text-gray-900">Description:</label>
-                                <textarea class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 @error('form.description') is-invalid @enderror" id="description" wire:model="form.description" placeholder="Enter Description"></textarea>
+                                <textarea class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" id="description" wire:model="form.description" placeholder="Enter Description"></textarea>
                                 @error ('form.description')
                                     <span class="text-red-600">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="mt-6 flex justify-end gap-2">
-                                <button wire:click.prevent="save()" wire:loading.attr="disabled" class="px-4 py-2 text-white bg-green-600 rounded">
+                                <button wire:click.prevent="save()" wire:loading.attr="disabled" class="px-4 py-2 text-white bg-green-600 rounded-lg">
                                     <span>Create</span>
                                     <x-loading wire:loading.delay.long wire:target="save()" />
                                 </button>
-                                <button wire:click.prevent="cancel()" class="px-4 py-2 text-white bg-gray-600 rounded">Cancel</button>
+                                <a wire:navigate href="{{ route('posts.index') }}" class="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-gray-600 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Cancel</a>
                             </div>
                         </form>
                     </div>

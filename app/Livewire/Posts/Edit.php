@@ -56,29 +56,17 @@ class Edit extends Component
                 'description' => $this->description
             ]);
             session()->flash('success','Post Updated Successfully!!');
-            $this->redirect('/posts');
+            $this->redirectRoute('posts.index', navigate: true);
         } catch (\Exception $e) {
             session()->flash('error', $e->getMessage());
         }
     }
 
-    // public function updatingTitle($value)
-    // {
-    //     if ($value === 'title') {
-    //         throw new Exception('Title is invalid value');
-    //     }
-    // }
-
-    // public function updated($property)
-    // {
-    //     if ($property === 'title') {
-    //         $this->title = strtoupper($this->title);
-    //     }
-    // }
-
-    public function cancel()
+    public function updated($property)
     {
-        $this->redirect('/posts');
+        if ($property === 'title') {
+            $this->title = strtoupper($this->title);
+        }
     }
 
     #[Renderless]
@@ -89,16 +77,6 @@ class Edit extends Component
 
     public function render()
     {
-        return view('livewire.posts.edit');
-    }
-
-    public function placeholder()
-    {
-        return <<<'HTML'
-        <div class="px-4 py-4 text-black uppercase font-bold text-center">
-            <!-- Loading spinner... -->
-            Loading...
-        </div>
-        HTML;
+        return view('livewire.posts.edit'); 
     }
 }
